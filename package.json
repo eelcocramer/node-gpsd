@@ -1,0 +1,29 @@
+{
+  "name": "node-gpsd",
+  "description": "gpsd client for GPS tracking device.",
+  "version": "0.1.0",
+  "keywords": ["gps", "gpsd", "location", "tracking", "position"],
+  "repositories": [{
+    "type": "git",
+    "url": "git://github.com/eelcocramer/node-gpsd.git"
+  }],
+  "homepage": "http://github.com/eelcocramer/node-gpsd.git",
+  "bugs": {
+    "url": "http://github.com/eelcocramer/node-gpsd/issues"
+  },
+  "main": "./lib/gpsd",
+  "engine": "node": ">=v0.6.0",
+  "dependencies": {
+    "winston": ">=v0.5.0"
+  },
+  "devDependencies": {},
+  "contributors": [
+    "Eelco Cramer",
+    "Pascal Deschenes"
+  ],
+  "maintainers": [{"name": "Eelco Cramer"
+  		 ,"email": "eelco@servicelab.org"
+  		 ,"web": "http://www.servicelab.org"
+  }],
+  "licences": [{"type": "Apache"}]
+}
