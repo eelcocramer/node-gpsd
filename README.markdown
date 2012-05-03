@@ -10,7 +10,11 @@ With package manager [npm](http://npmjs.org/):
 
 ## Code instructions
 
-node-gpsd has 2 classes: `Daemon` and `Listener`.
+Require `node-gpsd` by calling:
+
+    var gpsd = require('node-gpsd');
+    
+`node-gpsd` has 2 classes: `Daemon` and `Listener`.
 
 The `Daemon` is a wrapper to start and stop `gpsd` from your program. The `Listener` interfaces with a running `gpsd` (not nessaraly instanciated via the `Daemon` class).
 
