@@ -12,7 +12,7 @@
     "url": "http://github.com/eelcocramer/node-gpsd/issues"
   },
   "main": "./lib/gpsd",
-  "engine": "node": ">=v0.6.0",
+  "engine": "node >=v0.6.0",
   "dependencies": {
     "winston": ">=v0.5.0"
   },

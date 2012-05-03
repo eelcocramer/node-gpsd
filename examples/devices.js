@@ -22,26 +22,29 @@ var daemon = new gpsd.Daemon({
         device: '/dev/tty.usbserial'
 });
 
+daemon.setVerbose(true);
+
 daemon.start(function() {
     console.log('started');
     
     var listener = new gpsd.Listener();
-    var count = 0;
     
     listener.setVerbose(true);
     
-    listener.on('VERSION', function (version) {
-        console.log(version);
-        count++;
+    listener.on('DEVICE', function (device) {
+        console.log(device);
         
-        if (count >= 2) {
-            listener.disconnect();
-            daemon.stop();
-        }
+        listener.disconnect();
+        daemon.stop();
+    });
+
+    listener.on('DEVICES', function (devices) {
+        console.log(devices);
+        listener.device();
     });
     
     listener.connect(function () {
         console.log('connected');
-        listener.version();
+        listener.devices();
     });
 });
