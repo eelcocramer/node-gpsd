@@ -16,7 +16,7 @@ Require `node-gpsd` by calling:
     
 `node-gpsd` has 2 classes: `Daemon` and `Listener`.
 
-The `Daemon` is a wrapper to start and stop `gpsd` from your program. The `Listener` interfaces with a running `gpsd` (not nessaraly instanciated via the `Daemon` class).
+The `Daemon` is a wrapper to start and stop `gpsd` from your program. The `Listener` interfaces with a running `gpsd` (not necessarily instantiated via the `Daemon` class).
 
 #### Deamon
 
@@ -32,7 +32,7 @@ A `Daemon` is instantiated by calling:
 
 The options that are listed above are the default values so calling `new gpsd.Daemon()` will have the same effect. Change the options according your own setup.
 
-The `Daemon` can be started and stopped by calling the apriopiate methods:
+The `Daemon` can be started and stopped by calling the appropriate methods:
 
 	daemon.start(function() {
 		console.log('Started');
@@ -44,7 +44,7 @@ or:
 		console.log('Stopped');
 	});
 
-The `Daemon` can log to the console if needed. Logging can be controlled by adding `verbose: true` to the options when createing the `Daemon` or by calling:
+The `Daemon` can log to the console if needed. Logging can be controlled by adding `verbose: true` to the options when creating the `Daemon` or by calling:
 
 	daemon.setVerbose(true /* or false */);
 
@@ -80,7 +80,7 @@ The connection state can be queries by calling:
 
 	listener.isConnected();
 	
-To control watching the gps call the methods:
+To control watching gps events call the methods:
 
 	listener.watch();
 	listener.unwatch();
@@ -96,11 +96,11 @@ This will put the `Listener` in and out-of watching mode. The `Listener` is an [
 
 It is possible to query the gps device by calling:
 
-	listener.version() /* a INFO event will be emitted */
-	listener.devices() /* a DEVICES event will be emitted */
-	listener.device() /* a DEVICE event will be emitted */
+	listener.version(); /* a INFO event will be emitted */
+	listener.devices(); /* a DEVICES event will be emitted */
+	listener.device(); /* a DEVICE event will be emitted */
 	
-The `Listener` can log to the console if needed. Logging can be controlled by adding `verbose: true` to the options when createing the `Listener` or by calling:
+The `Listener` can log to the console if needed. Logging can be controlled by adding `verbose: true` to the options when creating the `Listener` or by calling:
 
 	listener.setVerbose(true /* or false */);
 
