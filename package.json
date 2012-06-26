@@ -1,7 +1,7 @@
 {
   "name": "node-gpsd",
   "description": "Node.js gpsd client for GPS tracking device.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "keywords": ["gps", "gpsd", "location", "tracking", "position"],
   "repositories": [{
     "type": "git",
@@ -12,9 +12,9 @@
     "url": "http://github.com/eelcocramer/node-gpsd/issues"
   },
   "main": "./lib/gpsd",
-  "engines": { "node": ">=v0.6.0" },
+  "engines": { "node": ">=v0.8.0" },
   "dependencies": {
-    "winston": ">=v0.5.0"
+    "winston": ">=v0.6.1"
   },
   "devDependencies": {},
   "contributors": [

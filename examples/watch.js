@@ -18,8 +18,9 @@
 var gpsd = require('../lib/gpsd.js');
 
 var daemon = new gpsd.Daemon({
-    program: '/usr/local/bin/gpsd',
-    device: '/dev/tty.usbserial'
+        program: '/Users/eelco/Projects/CBA/workspace/gpsd-3.4/gpsd',
+        device: '/dev/tty.usbserial',
+        verbose: true
 });
 
 daemon.start(function() {
