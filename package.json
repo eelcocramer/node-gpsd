@@ -1,7 +1,7 @@
 {
   "name": "node-gpsd",
   "description": "Node.js gpsd client for GPS tracking device.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "keywords": ["gps", "gpsd", "location", "tracking", "position"],
   "repository": {
     "type": "git",
