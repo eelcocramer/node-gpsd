@@ -28,7 +28,7 @@ daemon.start(function() {
     var listener = new gpsd.Listener();
     var count = 0;
     
-    listener.setVerbose(true);
+    listener.logger = console;
     
     listener.on('VERSION', function (version) {
         console.log(version);
