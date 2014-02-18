@@ -29,8 +29,8 @@ daemon.start(function() {
     
     var listener = new gpsd.Listener();
     
-    listener.setVerbose(true);
-    
+    listener.logger = console;
+
     listener.on('DEVICE', function (device) {
         console.log(device);
         
