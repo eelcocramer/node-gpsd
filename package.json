@@ -13,10 +13,8 @@
   },
   "main": "./lib/gpsd",
   "engines": { "node": ">=v0.8.0" },
-  "dependencies": {
-    "winston": ">=v0.6.1"
-  },
-  "devDependencies": {},
+  "dependencies": { },
+  "devDependencies": { },
   "contributors": [
     "Eelco Cramer",
     "Pascal Deschenes"

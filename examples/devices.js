@@ -22,15 +22,15 @@ var daemon = new gpsd.Daemon({
     device: '/dev/tty.usbserial'
 });
 
-daemon.setVerbose(true);
+daemon.logger = console;
 
 daemon.start(function() {
     console.log('started');
     
     var listener = new gpsd.Listener();
     
-    listener.setVerbose(true);
-    
+    listener.logger = console;
+
     listener.on('DEVICE', function (device) {
         console.log(device);
         
