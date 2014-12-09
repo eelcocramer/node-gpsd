@@ -67,7 +67,9 @@ A `Listener` is instantiated by calling:
             info: function() {}, 
             warn: console.warn, 
             error: console.error 
-        }
+        },
+        parsejson: true,
+        emitraw: false
 	});
 
 The options that are listed above are the default values so calling `new gpsd.Listener()` will have the same effect. Change the options according your own setup.
@@ -90,17 +92,22 @@ The connection state can be queries by calling:
 	
 To control watching gps events call the methods:
 
-	listener.watch();
+	listener.watch(options);
 	listener.unwatch();
 	
 This will put the `Listener` in and out-of watching mode. The `Listener` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) and will emit the following events:
 
 * `gpsd` events like described in the [gpsd documentation](http://www.catb.org/gpsd/gpsd_json.html). All `gpsd` events like: `TPV`, `SKY`, `INFO` and `DEVICE` can be emitted. To receive all `TPV` events just add `listener.on('TPV', function(tpvData))` to your code.
+* `raw` events contain the raw, unparsed input received from gpsd. Only emitted if emitjson option is true.
 * `error` when data in a bad format is received from `gpsd`.
 * `disconnected` when the connection with `gpsd` is lost.
 * `connected` when the connection with `gpsd` is established.
 * `error.connection` when the connection is refused.
 * `error.socket` on other connection errors.
+
+You can pass options to be sent on to gpsd when issuing the watch command, the default being `{ class: 'WATCH', json: true, nmea: false }`.
+
+If you want to receive raw nmea data from gpsd you should create the listener with `new gpsd.Listener({emitraw: true, parsejson: false})` and issue `listener.watch({class: 'WATCH', nmea: true})`.
 
 It is possible to query the gps device by calling:
 
