@@ -3,13 +3,12 @@ var gpsd = require('../lib/gpsd');
 var listener = new gpsd.Listener({
     port: 2947,
     hostname: 'localhost',
-    logger:  { 
-        info: function() {}, 
-        warn: console.warn, 
-        error: console.error 
+    logger:  {
+        info: function() {},
+        warn: console.warn,
+        error: console.error
     },
-    emitraw: true, 
-    parsejson: false    
+    parse: false
 });
 
 listener.connect(function() {
@@ -18,11 +17,12 @@ listener.connect(function() {
 
 //not going to happen, parsejson is false
 listener.on('TPV', function(data) {
-  console.log(data) 
-})
+  console.log(data);
+});
 
 // emitraw is true
 listener.on('raw', function(data) {
-  console.log(data) 
-})
+  console.log(data);
+});
+
 listener.watch({class: 'WATCH', nmea: true});
