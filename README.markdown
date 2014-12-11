@@ -118,7 +118,7 @@ listener.unwatch();
 
 This will put the `Listener` in and out-of watching mode. The `Listener` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) and will emit the following events:
 
-* `gpsd` events like described in the [gpsd documentation](http://www.catb.org/gpsd/gpsd_json.html). All `gpsd` events like: `TPV`, `SKY`, `INFO` and `DEVICE` can be emitted. To receive all `TPV` events just add `listener.on('TPV', function(tpvData))` to your code.
+* `gpsd` events like described in the [gpsd documentation](http://www.catb.org/gpsd/gpsd_json.html). All `gpsd` events like: `TPV`, `SKY`, `INFO` and `DEVICE` can be emitted. To receive all `TPV` events just add `listener.on('TPV', function(tpvData))` to your code. When the `parse` option is set to false these events will not be emitted.
 * `raw` events contain the raw, unparsed input received from gpsd. Only emitted if `parse` option is set to false.
 * `error` when data in a bad format is received from `gpsd`.
 * `disconnected` when the connection with `gpsd` is lost.

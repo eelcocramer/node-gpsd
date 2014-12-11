@@ -15,12 +15,12 @@ listener.connect(function() {
     console.log('Connected');
 });
 
-//not going to happen, parsejson is false
+//not going to happen, parse is false
 listener.on('TPV', function(data) {
   console.log(data);
 });
 
-// emitraw is true
+// parse is false, so raw data get emitted.
 listener.on('raw', function(data) {
   console.log(data);
 });
