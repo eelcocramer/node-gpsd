@@ -18,7 +18,7 @@
 var gpsd = require('../lib/gpsd.js');
 
 var daemon = new gpsd.Daemon({
-    program: '/usr/local/bin/gpsd',
+    program: '/usr/local/sbin/gpsd',
     device: '/dev/tty.usbserial'
 });
 
@@ -26,14 +26,14 @@ daemon.logger = console;
 
 daemon.start(function() {
     console.log('started');
-    
+
     var listener = new gpsd.Listener();
-    
+
     listener.logger = console;
 
     listener.on('DEVICE', function (device) {
         console.log(device);
-        
+
         listener.disconnect();
         daemon.stop();
     });
@@ -42,7 +42,7 @@ daemon.start(function() {
         console.log(devices);
         listener.device();
     });
-    
+
     listener.connect(function () {
         console.log('connected');
         listener.devices();

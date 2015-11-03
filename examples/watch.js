@@ -18,18 +18,18 @@
 var gpsd = require('../lib/gpsd.js');
 
 var daemon = new gpsd.Daemon({
-        program: '/Users/eelco/Projects/CBA/workspace/gpsd-3.4/gpsd',
+        program: '/usr/local/sbin/gpsd',
         device: '/dev/tty.usbserial',
         verbose: true
 });
 
 daemon.start(function() {
     var listener = new gpsd.Listener();
-    
+
     listener.on('TPV', function (tpv) {
         console.log(tpv);
     });
-    
+
     listener.connect(function() {
         listener.watch();
     });
