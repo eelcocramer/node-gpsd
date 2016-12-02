@@ -30,6 +30,7 @@ var daemon = new gpsd.Daemon({
     device: '/dev/ttyUSB0',
     port: 2947,
     pid: '/tmp/gpsd.pid',
+    readOnly: false,
     logger: {
         info: function() {},
         warn: console.warn,
